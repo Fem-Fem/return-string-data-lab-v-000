@@ -8,7 +8,9 @@
 $(function () {
   $(".js-more").on('click', function() {
     var id = $(this).data("id");
-    $.get("/posts/" + id + "/body", function(data) {
+    $.get("/posts/" + id + "/description", function(data) {
+      $.get("/posts/" + id + "/inventory", function(data) {
+        if (inventory)
       $("#body-" + id).text(data);
     });
   });
