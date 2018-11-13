@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     if @product.inventory == nil
       @value = false
     end
-    render :inventory
+    render plain: @value
   end
 
   def description
