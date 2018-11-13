@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     else
       @value = true
     end
+    render :inventory
   end
 
   def description
