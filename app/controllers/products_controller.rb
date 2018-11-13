@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def inventory
     @product = Product.find(params[:id])
+    @value = false
     if @product.inventory == nil
       @value = false
     else
