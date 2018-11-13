@@ -8,11 +8,9 @@ class ProductsController < ApplicationController
 
   def inventory
     @product = Product.find(params[:id])
-    @value = false
+    @value = true
     if @product.inventory == nil
       @value = false
-    else
-      @value = true
     end
     render :inventory
   end
