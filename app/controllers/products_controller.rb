@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     if @product.inventory == nil
       @value = false
     else
-      return true
+      @value = true
     end
   end
 
