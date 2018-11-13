@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
   end
 
   def description
-    binding.pry
     Product.find(params[:id].to_i)
     render :description
   end
