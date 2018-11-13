@@ -10,7 +10,7 @@ $(function () {
     var id = $(this).data("id");
     $.get("/posts/" + id + "/description", function(data) {
       $.get("/posts/" + id + "/inventory", function(data) {
-        if (inventory)
+        if (inventory == false)
       $("#body-" + id).text(data);
     });
   });
