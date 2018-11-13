@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def description
+    binding.pry
   end
 
   def products
