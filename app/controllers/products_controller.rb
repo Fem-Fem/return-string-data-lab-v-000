@@ -15,6 +15,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  def description
+  end
+
   def products
     @products = Product.all
   end
