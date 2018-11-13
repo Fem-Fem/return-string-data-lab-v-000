@@ -1,1 +1,38 @@
+<h1>
+  <div id="body-<%=product.id %>"><%= product.name %></div>
+</h1>
 
+<button class="js-more" data-id="<%=product.id %>">More Info</button>
+
+
+<h1><%= post.id %>: <%= post.title %></h2>
+<div id="body-<%= post.id %>"><%= truncate post.description %></div>
+
+
+<button class="js-more" data-id="<%= post.id %>">More...</button>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    var id = $(this).data("id");
+    $.get("/posts/" + id + "/body", function(data) {
+      $("#body-" + id).text(data);
+    });
+  });
+});
+</script>
+
+it 'gets the description and inventory', js: true do
+  product = Product.create!(name: "Test Product", inventory: 0, description: "This is a test description with more text than should be there.")
+  visit products_path
+  expect(page).to have_content product.name
+  expect(page).not_to have_content product.description
+  click_button "More Info"
+  expect(page).to have_content product.description
+  expect(page).to have_content "Sold Out"
+  product.inventory = 1
+  product.save
+  visit products_path
+  click_button "More Info"
+  expect(page).to have_content "Available"
+end
