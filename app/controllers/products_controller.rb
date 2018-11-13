@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
     else
       return true
     end
-    binding.pry
   end
 
   def products
