@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   def inventory
     @product = Product.find(params[:id])
     @value = true
+    binding.pry
     if @product.inventory == nil
       @value = false
     end
