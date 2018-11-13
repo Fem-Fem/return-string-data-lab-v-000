@@ -17,8 +17,7 @@ class ProductsController < ApplicationController
 
   def description
     product = Product.find(params[:id].to_i)
-    @description = product.description
-    render :description
+    render plain: product.description
   end
 
   def products
