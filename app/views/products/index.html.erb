@@ -2,11 +2,7 @@
   <%= render partial: "product", locals: {product: product} %>
 <% end %>
 
-<h1>
-  <%= binding.pry %>
-  <div id="body-<%=product.id %>"><%= product.name %></div>
-</h1>
-<button class="js-more" data-id="<%=product.id %>">More Info</button>
+
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
